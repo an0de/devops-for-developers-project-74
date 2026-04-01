@@ -25,6 +25,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Copy .env.example
+        run: cp app/.env.example app/.env
+
       - name: Build App
         uses: docker/build-push-action@v3
         with:
