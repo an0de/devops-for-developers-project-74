@@ -5,13 +5,13 @@ services:
       dockerfile: Dockerfile.production
     image: an0de/devops-for-developers-project-74
     command: ["make", "test"]
-    depends_on:
-      db:
-        condition: service_healthy
 
   app:
     extends:
       service: app-base
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:latest
