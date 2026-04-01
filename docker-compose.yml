@@ -2,7 +2,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
+    image: an0de/devops-for-developers-project-74
     command: ["make", "test"]
-    volumes:
-      - $PWD/app:/app:Z

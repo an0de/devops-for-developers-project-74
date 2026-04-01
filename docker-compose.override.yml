@@ -3,6 +3,12 @@ services:
     extends:
       file: docker-compose.yml
       service: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: localhost/devops-for-developers-project-74
     command: make dev
     ports:
       - "127.0.0.1:8080:8080"
+    volumes:
+      - $PWD/app:/app:Z
