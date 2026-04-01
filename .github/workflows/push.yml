@@ -28,6 +28,9 @@ jobs:
       - name: Copy .env.example
         run: cp app/.env.example app/.env
 
+      - name: Check
+        run: make ci
+
       - name: Build App
         uses: docker/build-push-action@v3
         with:
@@ -37,6 +40,3 @@ jobs:
           cache-to: type=inline
           push: true
           tags: ${{ env.APP_IMAGE_NAME }}
-
-      - name: Check
-        run: make ci
