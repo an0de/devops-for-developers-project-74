@@ -6,7 +6,8 @@ services:
     image: an0de/devops-for-developers-project-74
     command: ["make", "test"]
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:latest
