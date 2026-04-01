@@ -3,12 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    image: an0de/devops-for-developers-project-74
     command: ["make", "test"]
 
   app:
     extends:
       service: app-base
+    image: an0de/devops-for-developers-project-74
     depends_on:
       db:
         condition: service_healthy
