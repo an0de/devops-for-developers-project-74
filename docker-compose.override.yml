@@ -2,7 +2,7 @@ services:
   app:
     extends:
       file: docker-compose.yml
-      service: app
+      service: app-base
     build:
       context: .
       dockerfile: Dockerfile

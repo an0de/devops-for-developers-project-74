@@ -1,5 +1,5 @@
 services:
-  app:
+  app-base:
     build:
       context: .
       dockerfile: Dockerfile.production
@@ -8,6 +8,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+  app:
+    extends:
+      service: app-base
 
   db:
     image: postgres:latest
