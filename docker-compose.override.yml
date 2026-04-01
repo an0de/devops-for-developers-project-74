@@ -12,3 +12,15 @@ services:
       - "127.0.0.1:8080:8080"
     volumes:
       - $PWD/app:/app:Z
+
+  caddy:
+    image: caddy
+    volumes:
+      - $PWD/services/caddy:/etc/caddy:Z
+      - $PWD/services/caddy_data:/data:Z
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    depends_on:
+      - app
